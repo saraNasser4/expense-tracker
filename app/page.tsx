@@ -2,7 +2,21 @@
 
 import Link from "next/link";
 
-export default function Home() {
+export default async function Home() {
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+  const formData = {
+    productName: e.target.productName.value,
+    productPrice: e.target.productPrice.value,
+  };
+
+  await fetch("http://localhost:4000/add", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(formData),
+  });
+};
+
   const formObj = [
     { name: 'productName', type: 'text', text: 'Product: ' },
     { name: 'productPrice', type: 'number', text: 'Price: ' },
@@ -10,7 +24,7 @@ export default function Home() {
   return (
     <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-20 pb-20 gap-16 text-[#FF6B35] bg-[#2A3B5F] relative">
       <h1 className="font-bold text-nowrap text-4xl sm:text-5xl md:text-6xl lg:text-8xl">Expenses Tracker</h1>
-      <form className="md:max-w-1/2 xl:max-w-1/4 w-full">
+      <form onSubmit={(e)=> handleSubmit(e)} className="md:max-w-1/2 xl:max-w-1/4 w-full">
         {formObj.map((ele, id)=>
           <div className="flex gap-5 justify-between mb-4" key={id}>
             <label htmlFor={ele.name} className="text-xl md:text-2xl font-semibold ">{ele.text}</label>
