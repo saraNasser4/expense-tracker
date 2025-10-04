@@ -1,22 +1,5 @@
 @import "tailwindcss";
 
-:root {
-  --bgcolor: #235789;
-}
-
-
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-} */
-
-body {
-  background: var(--bgcolor);
-  font-family: Arial, Helvetica, sans-serif;
-} 
-
 /* For Chrome, Safari, Edge */
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
