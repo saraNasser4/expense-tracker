@@ -2,7 +2,6 @@
 
 :root {
   --bgcolor: #235789;
-  --txtcolor: #F1D302;
 }
 
 
@@ -15,7 +14,6 @@
 
 body {
   background: var(--bgcolor);
-  color: var(--txtcolor);
   font-family: Arial, Helvetica, sans-serif;
 } 
 
